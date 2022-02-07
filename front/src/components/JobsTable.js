@@ -148,10 +148,6 @@ function JobsTable() {
       );
     }
   };
-  const startFilter = () => {
-    if (filter !== "") {
-    }
-  };
 
   const handleCandidateDelete = (rowData) => {
     dispatch(
@@ -417,13 +413,7 @@ function JobsTable() {
         {renderDialog()}
       </Dialog>
       <span> </span>
-      <InputText
-        placeholder="Filter Description"
-        onChange={(evt) => {
-          setFilter(evt.target.value);
-          startFilter();
-        }}
-      />
+      <InputText placeholder="Filter Description" />
     </div>
   );
 }
