@@ -1,1 +1,1 @@
-export const SERVER = "http://localhost:3000";
+export const SERVER = `${window.location.protocol}//${window.location.hostname}:${window.location.port}`;
