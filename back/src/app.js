@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const { sequelize, associate } = require("./db/sequelize");
 const jobPostingRouter = require("./routers/jobposting-router");
 const candidateRouter = require("./routers/candidate-router");
@@ -7,6 +8,7 @@ require("./models/candidate");
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 app.use(jobPostingRouter);
 app.use(candidateRouter);
 
