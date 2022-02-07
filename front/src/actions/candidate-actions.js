@@ -57,7 +57,7 @@ export const updateCandidate = (candidateId, candidate, jobpostingId) => {
 
 export const deleteCandidate = (jobpostingId, candidateId) => {
   return {
-    type: "DELETE_CANDIDATES",
+    type: "DELETE_CANDIDATE",
     payload: async () => {
       let response = await fetch(
         `${SERVER}/jobpostings/${jobpostingId}/candidates/${candidateId}`,

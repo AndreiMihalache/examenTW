@@ -69,7 +69,7 @@ router.put(
     try {
       const jobposting = await JobPosting.findByPk(req.params.jobpostingId);
       if (jobposting) {
-        const candidate = await Candidate.findByPk(req.body.candidateId);
+        const candidate = await Candidate.findByPk(req.params.candidateId);
         if (candidate) {
           await candidate.update(req.body);
           res.status(200).json(candidate);
@@ -109,9 +109,9 @@ router.delete(
   "/jobpostings/:jobpostingId/candidates/:candidateId",
   async (req, res) => {
     try {
-      const jobposting = await JobPosting.findById(req.params.jobpostingId);
+      const jobposting = await JobPosting.findByPk(req.params.jobpostingId);
       if (jobposting) {
-        const candidate = await Candidate.findById(req.params.candidateId);
+        const candidate = await Candidate.findByPk(req.params.candidateId);
         if (candidate) {
           await candidate.destroy();
           res.status(200).json({ message: "Entitate stearsa" });

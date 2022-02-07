@@ -11,6 +11,20 @@ export const getJobPostings = () => {
   };
 };
 
+export const getSortedJobPostings = (order) => {
+  return {
+    type: "GET_JOBS",
+    payload: async () => {
+      let response = null;
+      if (order === 0)
+        response = await fetch(`${SERVER}/jobpostings?sortBy=deadline:asc`);
+      else response = await fetch(`${SERVER}/jobpostings?sortBy=deadline:desc`);
+      const data = await response.json();
+      return data;
+    },
+  };
+};
+
 export const addJobPosting = (jobposting) => {
   return {
     type: "ADD_JOBS",
